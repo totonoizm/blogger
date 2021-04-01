@@ -1,0 +1,10 @@
+<h1>Blogger</h1>
+<% @blogs.each do |blog| %>
+  <div>
+  <%= link_to blog_path(blog.id) do %>
+  <%= blog.title %>
+  <% end %>
+  </div>
+<% end %>
+
+<%= link_to "新規投稿", new_blog_path %>

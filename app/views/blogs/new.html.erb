@@ -1,0 +1,9 @@
+<%= form_with model: @blog, local:true do |f| %>
+<div class="field">
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :content %>
+  <%= f.rich_text_area :content %>
+  <%= f.submit %>
+</div>
+<% end %>
