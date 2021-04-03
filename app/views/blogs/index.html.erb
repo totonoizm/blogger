@@ -1,8 +1,9 @@
 <h1>Blogger</h1>
 <% @blogs.each do |blog| %>
   <div>
-  <%= link_to blog_path(blog.id) do %>
-  <%= blog.title %>
+    <%= link_to blog_path(blog.id) do %>
+    <%= blog.title %>
+    <%= image_tag blog.image.variant(resize_to_limit:[100,100]).processed, class:'img-fluid' if blog.image.attached? %>
   <% end %>
   </div>
 <% end %>
