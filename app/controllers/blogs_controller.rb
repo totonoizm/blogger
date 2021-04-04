@@ -1,7 +1,13 @@
 class BlogsController < ApplicationController
+  # before_action = authenticate_user #登録Userのみconfirm,edit,destroy,update
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.published #status =publishedのみ表示　blogモデルにてenmu型として定義した
+    # @blogs = Blog.where(status: :published) ↑と同意義
+  end
+
+  def confirm
+    @blogs = Blog.draft #同index
   end
 
   def show
@@ -37,6 +43,6 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:content, :title, :image)
+    params.require(:blog).permit(:content, :title, :image, :status)
   end
 end
