@@ -1,0 +1,13 @@
+<h1>Blogger</h1>
+<% @blogs.each do |blog| %>
+  <div>
+    <%= link_to blog_path(blog.id) do %>
+    <%= blog.title %>
+    <%= blog.status %>
+
+    <%= image_tag blog.image.variant(resize_to_limit:[100,100]).processed, class:'img-fluid' if blog.image.attached? %>
+  <% end %>
+  </div>
+<% end %>
+
+<%= link_to "新規投稿", new_blog_path %>

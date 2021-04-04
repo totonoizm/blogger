@@ -5,6 +5,10 @@ class BlogsController < ApplicationController
     # @blogs = Blog.where(status: :published) ↑と同意義
   end
 
+  def confirm
+    @blogs = Blog.draft
+  end
+
   def show
     @blog = Blog.find(params[:id])
   end

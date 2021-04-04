@@ -4,6 +4,11 @@
   <%= f.text_field :title %>
   <%= f.label :content %>
   <%= f.rich_text_area :content %>
+  <div class="images">
+    <%= f.label :画像 %>
+    <%= f.file_field :image, accept: "image/png, image/jpeg, image/gif"%>
+  </div>
+    <%= f.select :status, ["draft", "published"] %>
   <%= f.submit %>
 </div>
 <% end %>

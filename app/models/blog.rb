@@ -1,6 +1,6 @@
 class Blog < ApplicationRecord
 
-  enum status: { draft: 0, published: 1 } #下書き判別ステータスを設定
+  enum status: { draft: 0, published: 1 } #enumにて下書き判別ステータスを設定
   has_one_attached :image # サムネイル用
   has_rich_text :content
 
