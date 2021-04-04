@@ -8,7 +8,7 @@
     <%= f.label :画像 %>
     <%= f.file_field :image, accept: "image/png, image/jpeg, image/gif"%>
   </div>
-    <%= f.select :status, ["draft", "published"] %>
+    <%= f.select :status, Blog.statuses.keys.map { |k| [t("enums.blog.status.#{k}"),k]} %>
   <%= f.submit %>
 </div>
 <% end %>

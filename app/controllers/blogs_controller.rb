@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  # before_action = authenticate_user #登録Userのみconfirm,edit,destroy,update
 
   def index
     @blogs = Blog.published #status =publishedのみ表示　blogモデルにてenmu型として定義した
@@ -6,7 +7,7 @@ class BlogsController < ApplicationController
   end
 
   def confirm
-    @blogs = Blog.draft
+    @blogs = Blog.draft #同index
   end
 
   def show
