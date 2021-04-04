@@ -1,7 +1,8 @@
 class BlogsController < ApplicationController
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.published #status =publishedのみ表示　blogモデルにてenmu型として定義した
+    # @blogs = Blog.where(status: :published) ↑と同意義
   end
 
   def show
@@ -37,6 +38,6 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:content, :title, :image)
+    params.require(:blog).permit(:content, :title, :image, :status)
   end
 end
