@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "blogs#index"
+  devise_for :admins
   resources :blogs do
     collection do
       get "confirm"

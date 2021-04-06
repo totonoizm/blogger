@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  # before_action = authenticate_user #登録Userのみconfirm,edit,destroy,update
+  before_action :authenticate_admin!, expect: [:show, :index] #show,indexアクション以外はログイン状態か確認する
 
   def index
     @blogs = Blog.published #status =publishedのみ表示　blogモデルにてenmu型として定義した
@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
+    @blog.admin_id = current_admin.id
     @blog.save
     redirect_to blogs_path
   end

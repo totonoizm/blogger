@@ -3,7 +3,7 @@
   <div>
     <%= link_to blog_path(blog.id) do %>
     <%= blog.title %>
-    <%= blog.status %>
+    <%= blog.status_i18n %>
 
     <%= image_tag blog.image.variant(resize_to_limit:[100,100]).processed, class:'img-fluid' if blog.image.attached? %>
   <% end %>
