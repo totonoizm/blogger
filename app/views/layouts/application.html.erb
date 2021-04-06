@@ -10,6 +10,15 @@
   </head>
 
   <body>
+  <header>
+  <% if admin_signed_in? %>
+    <%= link_to "新規投稿", new_blog_path %>
+    <%= link_to "公開中一覧", blogs_path %>
+    <%= link_to "下書き一覧", confirm_blogs_path %>
+    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+  <% else %>
+  <% end %>
+  </header>
     <%= yield %>
   </body>
 </html>
