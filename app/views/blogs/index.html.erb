@@ -3,6 +3,7 @@
   <div>
     <%= link_to blog_path(blog.id) do %>
     <%= blog.title %>
+    <%= blog.status_i18n %> <%# 列挙子日本語表示の為 _i18nを追記　%>
     <%= image_tag blog.image.variant(resize_to_limit:[100,100]).processed, class:'img-fluid' if blog.image.attached? %>
   <% end %>
   </div>
