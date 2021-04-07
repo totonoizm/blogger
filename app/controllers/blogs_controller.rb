@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_admin!, expect: [:show, :index] #show,indexアクション以外はログイン状態か確認する
+  before_action :authenticate_admin!, except: [:show, :index] #show,indexアクション以外はログイン状態か確認する
 
   def index
     @blogs = Blog.published #status =publishedのみ表示　blogモデルにてenmu型として定義した

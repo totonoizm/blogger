@@ -1,13 +1,1 @@
-<%= form_with model: @blog, local:true do |f| %>
-<div class="field">
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :content %>
-  <%= f.rich_text_area :content %>
-  <div class="images">
-    <%= f.label :画像 %>
-    <%= f.file_field :image, accept: "image/png, image/jpeg, image/gif"%>
-</div>
-  <%= f.submit %>
-</div>
-<% end %>
+<%= render "form", blog: @blog %>
