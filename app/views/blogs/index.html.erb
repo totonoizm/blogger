@@ -1,9 +1,27 @@
-<h1>Blogger</h1>
-<% @blogs.each do |blog| %>
-  <div>
-    <%= link_to blog_path(blog.id) do %>
-    <%= blog.title %>
-    <%= image_tag blog.image.variant(resize_to_limit:[100,100]).processed, class:'img-fluid' if blog.image.attached? %>
-  <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <% @blogs.each do |blog| %>
+        <div class="post-preview">
+          <%= link_to blog_path(blog.id) do %>
+          <%= image_tag blog.image.variant(resize_to_limit:[100,100]).processed, class:'img-fluid' if blog.image.attached? %>
+            <h2 class="post-title">
+              <%= blog.title %>
+            </h2>
+          <% end %>
+            <h3 class="post-subtitle">
+              <%= strip_tags(blog.content.to_s).gsub(/[\n]/,"").strip .truncate(20) %>
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Start Bootstrap</a>
+            on September 24, 2019</p>
+        </div>
+        <hr>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+  <div class="clearfix">
+    <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+  </div>

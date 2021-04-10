@@ -1,6 +1,21 @@
-<%= @blog.title %>
-<%= @blog.content %>
 
-<%= link_to "index", blogs_path %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+            <h2 class="post-title">
+              <%= @blog.title %>
+            </h2>
+            <h3 class="post-subtitle">
+              <%= @blog.content %>
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">Start Bootstrap</a>
+            on September 24, 2019</p>
+        <hr>
+      </div>
+    </div>
+  </div>
+<%= link_to "ブログ一覧へ", blogs_path %>
 <%= link_to "編集", edit_blog_path(@blog.id) %>
 <%= link_to "削除", blog_path(@blog.id),method: :delete %>
