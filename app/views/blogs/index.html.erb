@@ -13,8 +13,9 @@
               <%= strip_tags(blog.content.to_s).gsub(/[\n]/,"").strip .truncate(20) %>
             </h3>
           </a>
-          <a href="#">Tag</a>
+          <a>関連項目</a><%= blog.tag_list %>
           <p class="post-meta">Posted by
+            </p>
             <%= blog.created_at %></p>
         </div>
         <hr>

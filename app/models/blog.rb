@@ -1,7 +1,7 @@
 class Blog < ApplicationRecord
 
   belongs_to :admin
-  
+  acts_as_taggable
   enum status: { draft: 0, published: 1 } #enumにて下書き判別ステータスを設定
   has_one_attached :image # サムネイル用
   has_rich_text :content

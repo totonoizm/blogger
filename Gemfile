@@ -59,3 +59,4 @@ gem "enum_help"
 
 gem "devise"
 
+gem 'acts-as-taggable-on'
