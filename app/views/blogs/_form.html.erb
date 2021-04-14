@@ -2,6 +2,8 @@
 <div class="field">
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.label :tag_list %>
+  <%= f.text_field :tag_list, value: blog.tag_list.join(","), placeholder: "hoge" %>
   <%= f.label :content %>
   <%= f.rich_text_area :content %>
   <div class="images">
