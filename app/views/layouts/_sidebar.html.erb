@@ -1,3 +1,6 @@
-<div class="col-sm-2">
-feedと検索それからタグ一覧
+<div class="col-sm-2"></div>
+<%# タグ一覧表示 %>
+<% @tags.each do |tag| %>
+  <%= link_to "#{tag.name}(#{tag.taggings_count})", blogs_path(tag: tag.name) %>
+<% end %>
 </div>

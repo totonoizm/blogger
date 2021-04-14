@@ -4,6 +4,10 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.published #status =publishedのみ表示　blogモデルにてenmu型として定義した
     # @blogs = Blog.where(status: :published) ↑と同意義
+    @tags = Blog.tag_counts_on(:tags) #全タグ取得 tags_on(:tags) gem メソッド
+    if @tag = params[:tag] #タグ検索用
+      @blog = Blog.tagged_with(params[:tag]) #タグに紐付く投稿
+    end
   end
 
   def confirm
