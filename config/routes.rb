@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "blogs#index"
+  get "/homes/about", to: "homes#about"
   devise_for :admins
   resources :blogs do
     collection do
